@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
 const bookingSchema = mongoose.Schema({
-    _id: {
-        type : String,
-        require: true
-    },
-    name: {
+    client: {
         type : String,
         require: true
     },
@@ -17,11 +13,11 @@ const bookingSchema = mongoose.Schema({
         type : Array,
         require: true
     },
-    appointmentName:{
+    phone:{
         type : String,
         require: true
     },
-    appointmentName:{
+    serviceName:{
         type : String,
         require: true
     },
