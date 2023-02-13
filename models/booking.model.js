@@ -10,7 +10,7 @@ const bookingSchema = mongoose.Schema({
         require: true
     },
     slot: {
-        type : Array,
+        type : String,
         require: true
     },
     phone:{
@@ -22,7 +22,7 @@ const bookingSchema = mongoose.Schema({
         require: true
     },
     appointmentDate:{
-        type : Date,
+        type : String,
         require: true
     }
 })
