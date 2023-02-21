@@ -9,7 +9,8 @@ const users = require('./models/user.model');
 const appointmentRouter = require('./routes/appointments.route');
 const bookingRouter = require('./routes/bookings.route');
 const userRouter = require('./routes/users.route');
-const paymentRouter= require('./routes/payment.route');
+const paymentRouter = require('./routes/payment.route');
+const reviewRouter = require('./routes/review.route');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use("/api/appointments", appointmentRouter);
 app.use("/api/bookings", bookingRouter);
 app.use("/api/users", userRouter);
 app.use("/api/payments", paymentRouter);
+app.use("/api/reviews", reviewRouter);
 
 
 

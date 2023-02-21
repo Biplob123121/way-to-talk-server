@@ -1,3 +1,4 @@
+const users = require('../models/user.model');
 
 const VerifyAdmin = async (req, res, next) => {
     const decodedEmail = req.decoded.email;
