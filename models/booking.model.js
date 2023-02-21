@@ -2,32 +2,35 @@ const mongoose = require("mongoose");
 
 const bookingSchema = mongoose.Schema({
     client: {
-        type : String,
+        type: String,
         require: true
     },
     email: {
-        type : String,
+        type: String,
         require: true
     },
     slot: {
-        type : String,
+        type: String,
         require: true
     },
-    phone:{
-        type : String,
+    phone: {
+        type: String,
         require: true
     },
-    serviceName:{
-        type : String,
+    serviceName: {
+        type: String,
         require: true
     },
-    appointmentDate:{
-        type : String,
+    appointmentDate: {
+        type: String,
         require: true
     },
-    price:{
-        type : String,
+    price: {
+        type: String,
         require: true
+    },
+    paid: {
+        type: String,
     }
 })
 

@@ -9,6 +9,7 @@ const users = require('./models/user.model');
 const appointmentRouter = require('./routes/appointments.route');
 const bookingRouter = require('./routes/bookings.route');
 const userRouter = require('./routes/users.route');
+const paymentRouter= require('./routes/payment.route');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use("/api/appointments", appointmentRouter);
 app.use("/api/bookings", bookingRouter);
 app.use("/api/users", userRouter);
+app.use("/api/payments", paymentRouter);
 
 
 
@@ -27,6 +29,8 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + '/./views/index.html')
 });
 
+
+// this route for send jwt token in the client side
 app.get('/api/jwt', async (req, res) => {
     const email = req.query.email;
     const query = { email: email };
@@ -38,6 +42,8 @@ app.get('/api/jwt', async (req, res) => {
     res.status(403).send({ accessToken: '' })
 });
 
+
+// this route for stripe payment intent
 app.post('/create-payment-intent', async (req, res) => {
     const booking = req.body;
     const price = booking.price;
@@ -54,6 +60,8 @@ app.post('/create-payment-intent', async (req, res) => {
         clientSecret: paymentIntent.client_secret,
     });
 });
+
+
 
 // Route not found
 app.use((req, res, next) => {
