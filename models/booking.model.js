@@ -24,6 +24,10 @@ const bookingSchema = mongoose.Schema({
     appointmentDate:{
         type : String,
         require: true
+    },
+    price:{
+        type : String,
+        require: true
     }
 })
 

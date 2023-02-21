@@ -22,12 +22,12 @@ const getUser = async (req, res) => {
     }
 }
 
-const getAdmin = async (req, res) =>{
+const getAdmin = async (req, res) => {
     try {
         const email = req.params.email;
-        const admin = await users.findOne({email: email})
+        const admin = await users.findOne({ email: email })
         res.send({ isAdmin: admin?.role === 'admin' });
-        
+
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -35,12 +35,6 @@ const getAdmin = async (req, res) =>{
 
 const updateUser = async (req, res) => {
     try {
-        const decodedEmail = req.decoded.email;
-        const admin = await users.findOne({ email: decodedEmail })
-        if (admin.role !== 'admin') {
-            return res.status(403).json({ acknowledged: false, message: "Forbidden access" });
-        }
-
         const user = await users.findOne({ _id: req.params.id });
         user.role = 'admin';
         await user.save();
