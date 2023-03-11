@@ -64,5 +64,14 @@ const updateBooking = async (req, res) => {
     }
 }
 
+const deleteBooking = async (req, res) => {
+    try {
+        const booking = await bookings.deleteOne({ _id: req.params.id });
+        res.status(200).json({ message: 'Appointment is deleted.', booking });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+}
 
-module.exports = { getBookings, newBooking, getSingleBooking, updateBooking }
+
+module.exports = { getBookings, newBooking, getSingleBooking, updateBooking, deleteBooking }
